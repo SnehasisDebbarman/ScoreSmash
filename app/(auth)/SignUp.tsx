@@ -1,8 +1,9 @@
+import { Link, router } from "expo-router";
 import React, { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
-import { supabase } from "../lib/auth";
 import { Button, Input, Text } from "react-native-elements";
-import { Link, router } from "expo-router";
+
+import { supabase } from "../lib/auth";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -13,8 +14,8 @@ export default function SignUp() {
   async function signInWithEmail() {
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
+      email,
+      password,
     });
     if (error) Alert.alert(error.message);
     // router.push("/(auth)/LandingOne");
@@ -27,8 +28,8 @@ export default function SignUp() {
       data: { session },
       error,
     } = await supabase.auth.signUp({
-      email: email,
-      password: password,
+      email,
+      password,
     });
     console.log(error);
     if (error) {
@@ -54,7 +55,7 @@ export default function SignUp() {
           onChangeText={(text) => setEmail(text)}
           value={email}
           placeholder="email@address.com"
-          autoCapitalize={"none"}
+          autoCapitalize="none"
         />
       </View>
       <View style={styles.verticallySpaced}>
@@ -63,9 +64,9 @@ export default function SignUp() {
           leftIcon={{ type: "font-awesome", name: "lock" }}
           onChangeText={(text) => setPassword(text)}
           value={password}
-          secureTextEntry={true}
+          secureTextEntry
           placeholder="Password"
-          autoCapitalize={"none"}
+          autoCapitalize="none"
         />
       </View>
 

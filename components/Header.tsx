@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import { View, Text } from "react-native";
 
 const Header = () => {
     return (
-        <View className='h-20 bg-red-300'>
+        <View className="h-20 bg-red-300">
             <Text>ScoreSmash</Text>
         </View>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
