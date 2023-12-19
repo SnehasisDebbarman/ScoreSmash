@@ -25,21 +25,6 @@ const DATA = [
 const Home = () => {
     return (
         <View style={{ flex: 1, }}>
-            {/* <Stack.Screen
-                options={{
-                    title: "Home",
-                    headerStyle: { backgroundColor: "#f4411e" },
-                    headerTintColor: "#fff",
-                    headerTitleStyle: {
-                        fontWeight: "bold",
-                    },
-                    headerTitle: (props) => (
-                        <View className="w-[100%] h-full bg-red-300">
-                            <Text>Scrore Smash</Text>
-                        </View>
-                    ),
-                }}
-            /> */}
             <View className="w-full h-full">
                 <FlashList
                     className="flex-auto w-screen"
