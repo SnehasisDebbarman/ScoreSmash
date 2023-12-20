@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, Pressable, TouchableOpacity, Alert, SafeAreaView } from "react-native";
-import { VictoryBar, VictoryChart, VictoryTheme, VictoryLine } from "victory-native";
+import React, { useState, } from "react";
+import { View, Text, TextInput, TouchableOpacity, Alert, SafeAreaView } from "react-native";
+import { VictoryChart, VictoryTheme, VictoryLine } from "victory-native";
 import * as math from "mathjs"
 
-// import nerdamer from "nerdamer/all"
 const DATA = [
     { x: -9 },
     { x: -8 },
@@ -25,26 +24,9 @@ const DATA = [
     { x: 8 },
     { x: 9 },
 ]
-
 const Timeline = () => {
-
     const [inputEquation, setInputEquation] = useState('x');
     const [serialized, setSerialized] = useState("x")
-    const [result, setResult] = useState(null);
-
-
-
-    const createTwoButtonAlert = () =>
-        Alert.alert('Alert Title', 'My Alert Msg', [
-            {
-                text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
-                style: 'cancel',
-            },
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
-        ]);
-
-
     const convertToJavaScriptFunction = (x: number) => {
         try {
             const equation2 = math.compile(serialized);
@@ -53,16 +35,7 @@ const Timeline = () => {
         } catch (error) {
             return "error";
         }
-
     };
-
-    const maxDomain = () => {
-        const arr = DATA.map((it) => {
-            return convertToJavaScriptFunction(it.x)
-        })
-
-        return Math.max(...arr)
-    }
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={{
@@ -87,11 +60,8 @@ const Timeline = () => {
                             duration: 2000,
                         }}
                         data={DATA}
-
                         y={({ x }) => convertToJavaScriptFunction(x)} />
                 </VictoryChart>
-
-
             </View>
         </SafeAreaView>
     );

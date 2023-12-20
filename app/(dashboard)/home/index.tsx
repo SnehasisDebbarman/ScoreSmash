@@ -36,9 +36,7 @@ const Home = () => {
                         </View>}
                     estimatedItemSize={200}
                 />
-
             </View>
-
         </View>
     );
 };
