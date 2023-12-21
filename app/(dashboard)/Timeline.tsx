@@ -4,6 +4,7 @@ import { VictoryChart, VictoryTheme, VictoryLine } from "victory-native";
 import * as math from "mathjs"
 
 const DATA = [
+{x:-10},
     { x: -9 },
     { x: -8 },
     { x: -7 },
@@ -23,6 +24,7 @@ const DATA = [
     { x: 7 },
     { x: 8 },
     { x: 9 },
+    {x:10},
 ]
 const Timeline = () => {
     const [inputEquation, setInputEquation] = useState('x');
